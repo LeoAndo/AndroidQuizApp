@@ -31,4 +31,4 @@ see [wiki](https://github.com/LeoAndo/AndroidAppTemplate/wiki)
 
 # capture: Android Resizable Emulator API 33
 
-<img src="https://user-images.githubusercontent.com/16476224/222953372-32fc783a-c7da-480f-8529-6c794779d636.png" width=320 />
+<img src="" width=320 />
