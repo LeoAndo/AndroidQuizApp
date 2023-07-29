@@ -171,30 +171,34 @@ fun CompactMainScreenStateless(
 @PreviewPhoneDevice
 @Composable
 private fun Prev_CompactMainScreen_Initial() {
-    CompactMainScreenStateless(
-        snackbarHostState = remember { SnackbarHostState() },
-        pagerState = rememberPagerState(),
-        isFinishedQuiz = false,
-        collectAnswerCount = 0,
-        selectedQuestion = Question.KADAI01,
-        onClickBottomItem = {},
-        onClickResetButton = { },
-        onClickAnswerButton = {},
-    )
+    AppSurface {
+        CompactMainScreenStateless(
+            snackbarHostState = remember { SnackbarHostState() },
+            pagerState = rememberPagerState(),
+            isFinishedQuiz = false,
+            collectAnswerCount = 0,
+            selectedQuestion = Question.KADAI01,
+            onClickBottomItem = {},
+            onClickResetButton = { },
+            onClickAnswerButton = {},
+        )
+    }
 }
 
 @OptIn(ExperimentalFoundationApi::class)
 @PreviewPhoneDevice
 @Composable
 private fun Prev_CompactMainScreen_Finished() {
-    CompactMainScreenStateless(
-        snackbarHostState = remember { SnackbarHostState() },
-        pagerState = rememberPagerState(initialPage = Question.KADAI01.data.size - 1),
-        isFinishedQuiz = true,
-        collectAnswerCount = Question.KADAI01.data.size,
-        selectedQuestion = Question.KADAI01,
-        onClickBottomItem = {},
-        onClickResetButton = { },
-        onClickAnswerButton = {},
-    )
+    AppSurface {
+        CompactMainScreenStateless(
+            snackbarHostState = remember { SnackbarHostState() },
+            pagerState = rememberPagerState(initialPage = Question.KADAI01.data.size - 1),
+            isFinishedQuiz = true,
+            collectAnswerCount = Question.KADAI01.data.size,
+            selectedQuestion = Question.KADAI01,
+            onClickBottomItem = {},
+            onClickResetButton = { },
+            onClickAnswerButton = {},
+        )
+    }
 }
