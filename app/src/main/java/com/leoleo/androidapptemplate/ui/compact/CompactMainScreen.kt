@@ -189,16 +189,14 @@ private fun Prev_CompactMainScreen_Initial() {
 @PreviewPhoneDevice
 @Composable
 private fun Prev_CompactMainScreen_Finished() {
-    AppSurface {
-        CompactMainScreenStateless(
-            snackbarHostState = remember { SnackbarHostState() },
-            pagerState = rememberPagerState(initialPage = Question.KADAI01.data.size - 1),
-            isFinishedQuiz = true,
-            collectAnswerCount = Question.KADAI01.data.size,
-            selectedQuestion = Question.KADAI01,
-            onClickBottomItem = {},
-            onClickResetButton = { },
-            onClickAnswerButton = {},
-        )
-    }
+    CompactMainScreenStateless(
+        snackbarHostState = remember { SnackbarHostState() },
+        pagerState = rememberPagerState(initialPage = Question.KADAI01.data.size - 1),
+        isFinishedQuiz = true,
+        collectAnswerCount = Question.KADAI01.data.size,
+        selectedQuestion = Question.KADAI01,
+        onClickBottomItem = {},
+        onClickResetButton = { },
+        onClickAnswerButton = {},
+    )
 }
