@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">AndroidAppTemplate</string>
+    <string name="kadai_01">kadai_01</string>
+    <string name="kadai_02">kadai_02</string>
+
     <string name="reload">reload</string>
     <string name="no_content_description">No contentDescription</string>
     <string name="test_tag_compact_main_screen">test_tag_compact_main_screen</string>
