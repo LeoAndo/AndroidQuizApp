@@ -32,12 +32,6 @@ jobs:
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
         restore-keys: |
           ${{ runner.os }}-gradle-
-        
-    - name: Create local.properties
-      env:
-        GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        echo "GITHUB_ACCESS_TOKEN=$GITHUB_ACCESS_TOKEN" >> local.properties
     
     - name: Run lint for developmentDebug the variants.
       run: ./gradlew lintDevelopmentDebug
