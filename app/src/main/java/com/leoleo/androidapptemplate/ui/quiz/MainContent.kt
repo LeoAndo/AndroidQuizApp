@@ -23,24 +23,29 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.leoleo.androidapptemplate.ui.compact.Question
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.leoleo.androidapptemplate.R
 import com.leoleo.androidapptemplate.ui.component.AppSurface
+import com.leoleo.androidapptemplate.ui.component.ErrorContent
 import com.leoleo.androidapptemplate.ui.preview.PreviewPhoneDevice
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun MainContent(
+internal fun MainContent(
     modifier: Modifier = Modifier,
     pagerState: PagerState,
-    selectedQuestion: Question,
+    selectedQuestion: Quiz,
     isFinishedQuiz: Boolean,
     collectAnswerCount: Int,
     onClickResetButton: () -> Unit,
     onClickAnswerButton: (Int) -> Unit,
+    viewModel: MainContentViewModel = hiltViewModel()
 ) {
+
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(12.dp),
@@ -60,22 +65,27 @@ fun MainContent(
                     .aspectRatio(1f),
                 contentAlignment = Alignment.Center
             ) {
-                val message = selectedQuestion.data[pageIndex].message
+                val message = stringResource(id = selectedQuestion.data[pageIndex].messageResId)
                 Text(text = message, overflow = TextOverflow.Ellipsis)
             }
+        }
+
+        viewModel.uiState.errorMessage?.let {
+            ErrorContent(
+                modifier = Modifier
+                    .wrapContentSize()
+                    .padding(12.dp), errorMessage = it
+            )
         }
 
         AnimatedVisibility(isFinishedQuiz) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 if (collectAnswerCount == selectedQuestion.data.size) {
-                    Text("全問正解です！", style = MaterialTheme.typography.titleLarge)
+                    Text(stringResource(id = R.string.completed_msg), style = MaterialTheme.typography.titleLarge)
+                    viewModel.addCompleteData(stringResource(id = selectedQuestion.titleResId))
                 }
-                Text("${collectAnswerCount}問正解しました。")
-                Button(onClick = {
-                    onClickResetButton()
-                }) {
-                    Text("やり直す")
-                }
+                Text(stringResource(id = R.string.format_finished_msg, formatArgs = arrayOf(collectAnswerCount)))
+                Button(onClick = { onClickResetButton() }) { Text(stringResource(id = R.string.retry)) }
             }
         }
         selectedQuestion.data[pagerState.currentPage].answers.forEachIndexed { index, answerText ->
@@ -96,7 +106,7 @@ fun MainContent(
 @OptIn(ExperimentalFoundationApi::class)
 @PreviewPhoneDevice
 @Composable
-fun Prev_MainContent() {
+private fun Prev_MainContent_Initial() {
     AppSurface {
         MainContent(
             modifier = Modifier
@@ -104,9 +114,29 @@ fun Prev_MainContent() {
                 .padding(12.dp)
                 .verticalScroll(rememberScrollState()),
             pagerState = rememberPagerState(),
-            selectedQuestion = Question.KADAI01,
+            selectedQuestion = Quiz.Q01,
             isFinishedQuiz = false,
             collectAnswerCount = 0,
+            onClickResetButton = { },
+            onClickAnswerButton = { index -> }
+        )
+    }
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@PreviewPhoneDevice
+@Composable
+private fun Prev_MainContent_Finished() {
+    AppSurface {
+        MainContent(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(12.dp)
+                .verticalScroll(rememberScrollState()),
+            pagerState = rememberPagerState(initialPage = Quiz.Q01.data.size - 1),
+            selectedQuestion = Quiz.Q01,
+            isFinishedQuiz = true,
+            collectAnswerCount = Quiz.Q01.data.size,
             onClickResetButton = { },
             onClickAnswerButton = { index -> }
         )

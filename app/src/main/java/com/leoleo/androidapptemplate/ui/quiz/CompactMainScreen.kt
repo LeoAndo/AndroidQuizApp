@@ -1,109 +1,98 @@
-package com.leoleo.androidapptemplate.ui.compact
+package com.leoleo.androidapptemplate.ui.quiz
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.ScrollState
+import com.leoleo.androidapptemplate.R
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.leoleo.androidapptemplate.ui.component.AppSurface
+import com.leoleo.androidapptemplate.ui.component.ErrorContent
 import com.leoleo.androidapptemplate.ui.preview.PreviewPhoneDevice
-import com.leoleo.androidapptemplate.ui.quiz.MainContent
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun CompactMainScreen(
+internal fun CompactMainScreen(
     modifier: Modifier = Modifier,
+    viewModel: QuizViewModel = hiltViewModel(),
+    navigateToNextScreen: () -> Unit,
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val pagerState = rememberPagerState()
     val scope = rememberCoroutineScope()
-    var isFinishedQuiz by rememberSaveable { mutableStateOf(false) }
-    var collectAnswerCount by rememberSaveable { mutableStateOf(0) }
-    var selectedQuestionIndex by rememberSaveable { mutableStateOf(0) }
-    val selectedQuestion =
-        Question.values()
-            .first { question -> question.ordinal == selectedQuestionIndex }
     val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
-        println("error-> ${throwable.message}")
+        viewModel.changeUiState(throwable.message ?: "error.")
     }
 
     CompactMainScreenStateless(
         modifier = modifier,
         snackbarHostState = snackbarHostState,
         pagerState = pagerState,
-        isFinishedQuiz = isFinishedQuiz,
-        collectAnswerCount = collectAnswerCount,
-        selectedQuestion = selectedQuestion,
+        uiState = viewModel.uiState,
         onClickBottomItem = { index ->
-            selectedQuestionIndex = index
-            collectAnswerCount = 0
-            isFinishedQuiz = false
             scope.launch(coroutineExceptionHandler) {
+                viewModel.changeUiState(index)
                 pagerState.scrollToPage(page = 0)
             }
         },
         onClickResetButton = {
-            collectAnswerCount = 0
-            isFinishedQuiz = false
             scope.launch(coroutineExceptionHandler) {
+                viewModel.resetUiState()
                 pagerState.scrollToPage(page = 0)
             }
         },
         onClickAnswerButton = { index ->
-            isFinishedQuiz = selectedQuestion.data.size <= pagerState.currentPage + 1
-            val msg =
-                if (selectedQuestion.data[pagerState.currentPage].answerIndex == index) {
-                    collectAnswerCount++
-                    "正解です！"
-                } else {
-                    "不正解です！"
-                }
-            snackbarHostState.currentSnackbarData?.dismiss()
             scope.launch(coroutineExceptionHandler) {
+                viewModel.changeUiState(pagerState.currentPage, index)
+                val msg =
+                    if (viewModel.uiState.selectedQuestion.data[pagerState.currentPage].answerIndex == index) {
+                        "Is the correct answer!"
+                    } else {
+                        "Incorrect!"
+                    }
                 pagerState.scrollToPage(page = pagerState.currentPage + 1)
+                snackbarHostState.currentSnackbarData?.dismiss()
                 snackbarHostState.showSnackbar(msg)
             }
-        }
+        },
+        onClickInfoIconButton = { navigateToNextScreen() }
     )
 }
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
-fun CompactMainScreenStateless(
+private fun CompactMainScreenStateless(
     modifier: Modifier = Modifier,
     snackbarHostState: SnackbarHostState,
     pagerState: PagerState,
     pagerScrollState: ScrollState = rememberScrollState(),
     bottomBarScrollState: ScrollState = rememberScrollState(),
-    isFinishedQuiz: Boolean,
-    collectAnswerCount: Int,
-    selectedQuestion: Question,
+    uiState: QuizUiState,
     onClickBottomItem: (Int) -> Unit,
     onClickResetButton: () -> Unit,
     onClickAnswerButton: (Int) -> Unit,
+    onClickInfoIconButton: () -> Unit,
 ) {
     AppSurface(modifier) {
         Scaffold(
@@ -112,16 +101,16 @@ fun CompactMainScreenStateless(
                 TopAppBar(
                     title = {
                         Text(
-                            stringResource(id = selectedQuestion.titleResId),
+                            stringResource(id = uiState.selectedQuestion.titleResId),
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis
                         )
                     },
                     actions = {
-                        IconButton(onClick = { /* doSomething() */ }) {
+                        IconButton(onClick = { onClickInfoIconButton() }) {
                             Icon(
-                                imageVector = Icons.Filled.CheckCircle,
-                                contentDescription = "Localized description"
+                                imageVector = Icons.Filled.Info,
+                                contentDescription = stringResource(id = R.string.completed_list)
                             )
                         }
                     },
@@ -133,7 +122,7 @@ fun CompactMainScreenStateless(
                         Row(
                             modifier = Modifier.horizontalScroll(bottomBarScrollState)
                         ) {
-                            Question.values().forEachIndexed { index, question ->
+                            Quiz.values().forEachIndexed { index, question ->
                                 Button(onClick = {
                                     onClickBottomItem(index)
                                 }) {
@@ -151,18 +140,29 @@ fun CompactMainScreenStateless(
                         top = it.calculateTopPadding() + 8.dp,
                         bottom = it.calculateBottomPadding() + 8.dp,
                     )
-                MainContent(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(innerPadding)
-                        .verticalScroll(pagerScrollState),
-                    pagerState = pagerState,
-                    selectedQuestion = selectedQuestion,
-                    isFinishedQuiz = isFinishedQuiz,
-                    collectAnswerCount = collectAnswerCount,
-                    onClickResetButton = { onClickResetButton() },
-                    onClickAnswerButton = { index -> onClickAnswerButton(index) }
-                )
+
+                if (uiState.errorMessage.isNullOrBlank()) {
+                    MainContent(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(innerPadding)
+                            .verticalScroll(pagerScrollState),
+                        pagerState = pagerState,
+                        selectedQuestion = uiState.selectedQuestion,
+                        isFinishedQuiz = uiState.isFinishedQuiz,
+                        collectAnswerCount = uiState.collectAnswerCount,
+                        onClickResetButton = { onClickResetButton() },
+                        onClickAnswerButton = { index -> onClickAnswerButton(index) }
+                    )
+                } else {
+                    ErrorContent(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .wrapContentSize()
+                            .padding(innerPadding),
+                        errorMessage = uiState.errorMessage,
+                    )
+                }
             })
     }
 }
@@ -175,12 +175,11 @@ private fun Prev_CompactMainScreen_Initial() {
         CompactMainScreenStateless(
             snackbarHostState = remember { SnackbarHostState() },
             pagerState = rememberPagerState(),
-            isFinishedQuiz = false,
-            collectAnswerCount = 0,
-            selectedQuestion = Question.KADAI01,
+            uiState = QuizUiState(),
             onClickBottomItem = {},
             onClickResetButton = { },
             onClickAnswerButton = {},
+            onClickInfoIconButton = {},
         )
     }
 }
@@ -191,12 +190,32 @@ private fun Prev_CompactMainScreen_Initial() {
 private fun Prev_CompactMainScreen_Finished() {
     CompactMainScreenStateless(
         snackbarHostState = remember { SnackbarHostState() },
-        pagerState = rememberPagerState(initialPage = Question.KADAI01.data.size - 1),
-        isFinishedQuiz = true,
-        collectAnswerCount = Question.KADAI01.data.size,
-        selectedQuestion = Question.KADAI01,
+        pagerState = rememberPagerState(initialPage = Quiz.Q01.data.size - 1),
+        uiState = QuizUiState(
+            isFinishedQuiz = true,
+            collectAnswerCount = Quiz.Q01.data.size,
+            selectedQuestion = Quiz.Q01,
+        ),
         onClickBottomItem = {},
         onClickResetButton = { },
         onClickAnswerButton = {},
+        onClickInfoIconButton = {},
     )
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@PreviewPhoneDevice
+@Composable
+private fun Prev_CompactMainScreen_Error() {
+    AppSurface {
+        CompactMainScreenStateless(
+            snackbarHostState = remember { SnackbarHostState() },
+            pagerState = rememberPagerState(),
+            uiState = QuizUiState(errorMessage = "error!!!!!!"),
+            onClickBottomItem = {},
+            onClickResetButton = { },
+            onClickAnswerButton = {},
+            onClickInfoIconButton = {},
+        )
+    }
 }

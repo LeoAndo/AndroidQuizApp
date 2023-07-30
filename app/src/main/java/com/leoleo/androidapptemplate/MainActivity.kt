@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.core.view.WindowCompat
-import com.leoleo.androidapptemplate.ui.MainScreen
+import com.leoleo.androidapptemplate.ui.MyNavHost
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val windowSizeClass = calculateWindowSizeClass(this)
-            MainScreen(windowWidthSizeClass = windowSizeClass.widthSizeClass)
+            MyNavHost(windowWidthSizeClass = windowSizeClass.widthSizeClass)
         }
     }
 }

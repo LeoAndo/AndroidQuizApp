@@ -10,31 +10,31 @@ import androidx.compose.ui.tooling.preview.Preview
     uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL,
     showBackground = true,
 )
-annotation class PreviewPhoneDevice
+internal annotation class PreviewPhoneDevice
 
 @Preview(
     showBackground = true,
     device = Devices.TABLET,
     name = "Tablet"
 )
-annotation class PreviewTabletDevice
+internal annotation class PreviewTabletDevice
 
 @Preview(
     showBackground = true,
     device = Devices.FOLDABLE,
     name = "Foldable"
 )
-annotation class PreviewFoldableDevice
+internal annotation class PreviewFoldableDevice
 
 @Preview(
     showBackground = true,
     device = Devices.DESKTOP,
     name = "Desktop"
 )
-annotation class PreviewDesktopDevice
+internal annotation class PreviewDesktopDevice
 
 @PreviewPhoneDevice
 @PreviewTabletDevice
 @PreviewFoldableDevice
 @PreviewDesktopDevice
-annotation class PreviewDevices
+internal annotation class PreviewDevices

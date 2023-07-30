@@ -1,11 +1,19 @@
 <resources>
     <string name="app_name">AndroidAppTemplate</string>
-    <string name="kadai_01">kadai_01</string>
-    <string name="kadai_02">kadai_02</string>
-
-    <string name="reload">reload</string>
-    <string name="no_content_description">No contentDescription</string>
+    <string name="quiz_01">Q 01</string>
+    <string name="quiz_02">Q 02</string>
+    <string name="empty_data">表示するデータはありません</string>
     <string name="test_tag_compact_main_screen">test_tag_compact_main_screen</string>
     <string name="test_tag_medium_main_screen">test_tag_compact_medium_screen</string>
     <string name="test_tag_expanded_main_screen">test_tag_expanded_main_screen</string>
+    <string name="quiz_01_msg_01">Androidの開発言語は？</string>
+    <string name="quiz_01_msg_02">iOSの開発言語は？</string>
+    <string name="quiz_01_msg_03">デザインツールは？</string>
+    <string name="retry">リトライ</string>
+    <string name="format_finished_msg">%d問正解しました。</string>
+    <string name="completed_msg">全問正解です！</string>
+    <string name="completed_list">クリア済み一覧へ</string>
+    <string name="success">正解です！</string>
+    <string name="next_step">次のクイズにチャレンジしよう！</string>
+    <string name="completed_screen">クイズ完了一覧</string>
 </resources>
