@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">TriviaQuizApp</string>
+    <string name="quiz_01_question_01">１ ＋ １ ＝ ？</string>
+    <string name="quiz_01_question_02">８ ＋ ８ ＝ ？</string>
+    <string name="quiz_01_question_03">２８ ＋ １２３ ＝ ？</string>
+    <string name="quiz_02_question_01">１ ー １ ＝ ？</string>
+    <string name="quiz_02_question_02">８ ー ８ ＝ ？</string>
+    <string name="quiz_02_question_03">２８ ー １２３ ＝ ？</string>
+    <string name="quiz_03_question_01">１ X １ ＝ ？</string>
+    <string name="quiz_03_question_02">８ X ８ ＝ ？</string>
+    <string name="quiz_03_question_03">２８ X １２３ ＝ ？</string>
+</resources>
