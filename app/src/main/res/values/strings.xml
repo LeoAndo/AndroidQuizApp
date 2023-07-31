@@ -17,7 +17,6 @@
     <string name="locale_zh_display_name" translatable="false">中文</string>
     <string name="locale_ko_display_name" translatable="false">한국어</string>
 
-    <!-- TODO CompletedQuizEntity(テーブル)のprimary keyとして使うので多言語かしないのと他と被らないこと！ -->
     <string name="quiz_01" translatable="false">Q 01</string>
     <string name="quiz_02" translatable="false">Q 02</string>
     <string name="quiz_03" translatable="false">Q 03</string>
