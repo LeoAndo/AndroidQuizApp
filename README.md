@@ -31,6 +31,8 @@ Registry:
     - Ability to quickly create multiple versions of your app.
 - multi module (clean architecture)
 - Multi-device compatible
+- localization(ja, ko, zh)
+  - default English 
 
 # App Store Link
 
