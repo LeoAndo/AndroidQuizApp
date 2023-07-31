@@ -1,8 +1,11 @@
 # Overview
+
 This is a template project for a quiz app.<br>
 
 # env
+
 - IDE
+
 ```
 Android Studio Giraffe | 2022.3.1
 Build #AI-223.8836.35.2231.10406996, built on June 29, 2023
@@ -17,45 +20,58 @@ Registry:
     external.system.auto.import.disabled=true
     ide.text.editor.with.preview.show.floating.toolbar=false
 ```
+
 - Support OS version: 10.0 later
 
 # features
+
 - Material 3 (Custom)
+- 100% jetpack compose
 - product flavor
-  - Ability to quickly create multiple versions of your app. 
-- multi module
-  - for a clean architecture.
+    - Ability to quickly create multiple versions of your app.
+- multi module (clean architecture)
+
+# App Store Link
+
+https://play.google.com/store/apps/details?id=com.leoleo.quizapp.trivia<br>
+https://play.google.com/store/apps/details?id=com.leoleo.quizapp.arithmetic<br>
 
 # Demo App 01 (TriviaQuizApp)
+
 ## capture: Phone API 30
+
 | top                                                    | quiz                                                    | completed                                                    |
 |--------------------------------------------------------|---------------------------------------------------------|--------------------------------------------------------------|
 | <img src="./capture/trivia_top_phone.png" width=320 /> | <img src="./capture/trivia_quiz_phone.png" width=320 /> | <img src="./capture/trivia_completed_phone.png" width=320 /> |
 
 ## capture: Tablet API 34
+
 | top                                                     | quiz                                                     | completed                                                     |
 |---------------------------------------------------------|----------------------------------------------------------|---------------------------------------------------------------|
 | <img src="./capture/trivia_top_tablet.png" width=320 /> | <img src="./capture/trivia_quiz_tablet.png" width=320 /> | <img src="./capture/trivia_completed_tablet.png" width=320 /> |
 
-
 ## capture: Foldable API 34
+
 | top                                                       | quiz                                                       | completed                                                       |
 |-----------------------------------------------------------|------------------------------------------------------------|-----------------------------------------------------------------|
 | <img src="./capture/trivia_top_foldable.png" width=320 /> | <img src="./capture/trivia_quiz_foldable.png" width=320 /> | <img src="./capture/trivia_completed_foldable.png" width=320 /> |
 
 # Demo App 02 (ArithQuizApp)
+
 ## capture: Phone API 34
+
 | top                                                   | quiz                                                   | completed                                                   |
 |-------------------------------------------------------|--------------------------------------------------------|-------------------------------------------------------------|
 | <img src="./capture/arith_top_phone.png" width=320 /> | <img src="./capture/arith_quiz_phone.png" width=320 /> | <img src="./capture/arith_completed_phone.png" width=320 /> |
 
 ## capture: Tablet API 34
+
 | top                                                    | quiz                                                    | completed                                                    |
 |--------------------------------------------------------|---------------------------------------------------------|--------------------------------------------------------------|
 | <img src="./capture/arith_top_tablet.png" width=320 /> | <img src="./capture/arith_quiz_tablet.png" width=320 /> | <img src="./capture/arith_completed_tablet.png" width=320 /> |
 
-
 ## capture: Foldable API 34
+
 | top                                                      | quiz                                                      | completed                                                      |
 |----------------------------------------------------------|-----------------------------------------------------------|----------------------------------------------------------------|
 | <img src="./capture/arith_top_foldable.png" width=320 /> | <img src="./capture/arith_quiz_foldable.png" width=320 /> | <img src="./capture/arith_completed_foldable.png" width=320 /> |
