@@ -10,4 +10,58 @@
     <string name="quiz_03_question_01" translatable="false">１ X １ ＝ ？</string>
     <string name="quiz_03_question_02" translatable="false">８ X ８ ＝ ？</string>
     <string name="quiz_03_question_03" translatable="false">２８ X １２３ ＝ ？</string>
+    <string-array name="quiz_01_question_01_answers">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    <string-array name="quiz_01_question_02_answers">
+        <item>12</item>
+        <item>16</item>
+        <item>18</item>
+    </string-array>
+    <string-array name="quiz_01_question_03_answers">
+        <item>155</item>
+        <item>152</item>
+        <item>151</item>
+        <item>150</item>
+    </string-array>
+    <string-array name="quiz_02_question_01_answers">
+        <item>2</item>
+        <item>8</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="quiz_02_question_02_answers">
+        <item>2</item>
+        <item>0</item>
+        <item>1</item>
+        <item>8</item>
+    </string-array>
+    <string-array name="quiz_02_question_03_answers">
+        <item>-92</item>
+        <item>90</item>
+        <item>95</item>
+        <item>-95</item>
+    </string-array>
+    <string-array name="quiz_03_question_01_answers">
+        <item>2</item>
+        <item>8</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="quiz_03_question_02_answers">
+        <item>2</item>
+        <item>64</item>
+        <item>1</item>
+        <item>8</item>
+    </string-array>
+    <string-array name="quiz_03_question_03_answers">
+        <item>3440</item>
+        <item>3442</item>
+        <item>3444</item>
+        <item>3448</item>
+    </string-array>
 </resources>
