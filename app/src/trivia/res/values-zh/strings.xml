@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">TriviaQuizApp</string>
-    <string name="quiz_01_question_01">１ ＋ １ ＝ ？</string>
-    <string name="quiz_01_question_02">８ ＋ ８ ＝ ？</string>
-    <string name="quiz_01_question_03">２８ ＋ １２３ ＝ ？</string>
-    <string name="quiz_02_question_01">１ ー １ ＝ ？</string>
-    <string name="quiz_02_question_02">８ ー ８ ＝ ？</string>
-    <string name="quiz_02_question_03">２８ ー １２３ ＝ ？</string>
-    <string name="quiz_03_question_01">１ X １ ＝ ？</string>
-    <string name="quiz_03_question_02">８ X ８ ＝ ？</string>
-    <string name="quiz_03_question_03">２８ X １２３ ＝ ？</string>
+    <string name="quiz_01_question_01">谁是美国第一任总统？</string>
+    <string name="quiz_01_question_02">美国的首都是哪里？</string>
+    <string name="quiz_01_question_03">哪些运动起源于美国？</string>
+    <string name="quiz_02_question_01">迈克尔·乔丹的身高是多少（厘米）？</string>
+    <string name="quiz_02_question_02">勒布朗·詹姆斯的身高是多少（厘米）？</string>
+    <string name="quiz_02_question_03">罗杰·克莱门斯有多高（厘米）？</string>
+    <string name="quiz_03_question_01">安卓是哪家公司开发的？</string>
+    <string name="quiz_03_question_02">iOS是哪家公司开发的？</string>
+    <string name="quiz_03_question_03">哪家公司开发windows？</string>
 </resources>
