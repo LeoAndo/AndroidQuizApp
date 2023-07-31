@@ -13,17 +13,17 @@ internal enum class Quiz(
         listOf(
             QuestionData(
                 messageResId = R.string.quiz_01_question_01,
-                answers = listOf("2", "3", "4", "5", "6"),
+                answerResId = R.array.quiz_01_question_01_answers,
                 answerIndex = 0
             ),
             QuestionData(
                 messageResId = R.string.quiz_01_question_02,
-                answers = listOf("12", "16", "18"),
+                answerResId = R.array.quiz_01_question_02_answers,
                 answerIndex = 1
             ),
             QuestionData(
                 messageResId = R.string.quiz_01_question_03,
-                answers = listOf("155", "152", "151", "150"),
+                answerResId = R.array.quiz_01_question_03_answers,
                 answerIndex = 2
             ),
         )
@@ -34,17 +34,17 @@ internal enum class Quiz(
         listOf(
             QuestionData(
                 messageResId = R.string.quiz_02_question_01,
-                answers = listOf("2", "8", "1", "0"),
+                answerResId = R.array.quiz_02_question_01_answers,
                 answerIndex = 3
             ),
             QuestionData(
                 messageResId = R.string.quiz_02_question_02,
-                answers = listOf("2", "0", "1", "8"),
+                answerResId = R.array.quiz_02_question_02_answers,
                 answerIndex = 1
             ),
             QuestionData(
                 messageResId = R.string.quiz_02_question_03,
-                answers = listOf("-92", "90", "95", "-95"),
+                answerResId = R.array.quiz_02_question_03_answers,
                 answerIndex = 3
             ),
         )
@@ -54,17 +54,17 @@ internal enum class Quiz(
         listOf(
             QuestionData(
                 messageResId = R.string.quiz_03_question_01,
-                answers = listOf("2", "8", "1", "0"),
+                answerResId = R.array.quiz_03_question_01_answers,
                 answerIndex = 2
             ),
             QuestionData(
                 messageResId = R.string.quiz_03_question_02,
-                answers = listOf("2", "64", "1", "8"),
+                answerResId = R.array.quiz_03_question_02_answers,
                 answerIndex = 1
             ),
             QuestionData(
                 messageResId = R.string.quiz_03_question_03,
-                answers = listOf("3440", "3442", "3444", "3448"),
+                answerResId = R.array.quiz_03_question_03_answers,
                 answerIndex = 2
             ),
         )
