@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="quiz_01_question_01">미국의 초대 대통령은?</string>
+    <string name="quiz_01_question_02">미국의 수도는?</string>
+    <string name="quiz_01_question_03">미국 발상 스포츠는?</string>
+    <string name="quiz_02_question_01">마이클 조던의 신장은 (cm)?</string>
+    <string name="quiz_02_question_02">레브론 제임스의 신장은 (cm)?</string>
+    <string name="quiz_02_question_03">로저 클레멘스의 신장은 (cm)?</string>
+    <string name="quiz_03_question_01">Android를 개발하는 회사는?</string>
+    <string name="quiz_03_question_02">iOS를 개발하는 회사는?</string>
+    <string name="quiz_03_question_03">windows를 개발하는 회사는?</string>
+</resources>

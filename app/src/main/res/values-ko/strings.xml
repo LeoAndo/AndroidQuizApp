@@ -1,0 +1,9 @@
+<resources>
+    <string name="format_finished_msg">%d문제 정답했습니다.</string>
+    <string name="completed_msg">전문 정답입니다!</string>
+    <string name="completed_list">완료 작업 확인</string>
+    <string name="empty_data">표시할 데이터 없음</string>
+    <string name="dropdown_menu_locale_label">언어를 선택하세요</string>
+    <string name="go_to_main_screen">퀴즈로</string>
+    <string name="go_to_completed_tasks_screen">완료 작업 확인</string>
+</resources>

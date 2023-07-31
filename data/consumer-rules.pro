@@ -1,15 +1,3 @@
-# io.ktor -START
-# https://github.com/ktorio/ktor/issues/379#issuecomment-453728961
--keep class io.ktor.** { *; }
--keep class kotlinx.coroutines.** { *; }
--dontwarn kotlinx.atomicfu.**
--dontwarn io.netty.**
--dontwarn com.typesafe.**
--dontwarn org.slf4j.**
--dontwarn java.lang.management.ManagementFactory
--dontwarn java.lang.management.RuntimeMXBean
-# io.ktor -END
-
 # kotlinx-serialization - START
 # https://github.com/Kotlin/kotlinx.serialization#android
 # Keep `Companion` object fields of serializable classes.

@@ -14,9 +14,9 @@ internal data class CompletedQuizEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     @ColumnInfo(name = COLUMN_TITLE)
-    val title: String = "",
+    val title: String,
     @ColumnInfo(name = COLUMN_COMPLETED_TIME)
-    val completedTime: Long = 0L,
+    val completedTime: Long,
 )
 
 internal fun List<CompletedQuizEntity>.toModels(): List<CompletedQuiz> {

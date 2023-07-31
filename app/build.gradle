@@ -78,23 +78,15 @@ android {
     }
     flavorDimensions "version"
     productFlavors {
-        development {
+        arithmetic {
             dimension "version"
-            applicationIdSuffix ".development"
-            versionNameSuffix "-development"
+            applicationIdSuffix ".arithmetic"
+            versionNameSuffix "-arithmetic"
         }
-        stub {
+        trivia {
             dimension "version"
-            applicationIdSuffix ".stub"
-            versionNameSuffix "-stub"
-        }
-        staging {
-            dimension "version"
-            applicationIdSuffix ".staging"
-            versionNameSuffix "-staging"
-        }
-        production {
-            dimension "version"
+            applicationIdSuffix ".trivia"
+            versionNameSuffix "-trivia"
         }
     }
 }
@@ -131,12 +123,6 @@ dependencies {
     // Compose: Navigation
     implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
     implementation "androidx.navigation:navigation-compose:2.6.0"
-
-    // Image
-    implementation 'io.coil-kt:coil-compose:2.4.0'
-
-    // Paging
-    implementation "androidx.paging:paging-compose:3.2.0"
 
     // responsive UI for larger screens
     implementation 'androidx.compose.material3:material3-window-size-class'

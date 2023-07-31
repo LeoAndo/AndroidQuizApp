@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">TriviaQuizApp</string>
+    <string name="quiz_01_question_01">アメリカの初代大統領は？</string>
+    <string name="quiz_01_question_02">アメリカの首都は？</string>
+    <string name="quiz_01_question_03">アメリカ発祥のスポーツは？</string>
+    <string name="quiz_02_question_01">マイケルジョーダンの身長は(cm)？</string>
+    <string name="quiz_02_question_02">レブロンジェームズの身長は(cm)？</string>
+    <string name="quiz_02_question_03">ロジャー・クレメンスの身長は(cm)？</string>
+    <string name="quiz_03_question_01">Androidを開発している会社は？</string>
+    <string name="quiz_03_question_02">iOSを開発している会社は？</string>
+    <string name="quiz_03_question_03">windowsを開発している会社は？</string>
+</resources>

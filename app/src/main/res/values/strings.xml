@@ -1,19 +1,42 @@
 <resources>
-    <string name="app_name">AndroidAppTemplate</string>
-    <string name="quiz_01">Q 01</string>
-    <string name="quiz_02">Q 02</string>
-    <string name="empty_data">表示するデータはありません</string>
-    <string name="test_tag_compact_main_screen">test_tag_compact_main_screen</string>
-    <string name="test_tag_medium_main_screen">test_tag_compact_medium_screen</string>
-    <string name="test_tag_expanded_main_screen">test_tag_expanded_main_screen</string>
-    <string name="quiz_01_msg_01">Androidの開発言語は？</string>
-    <string name="quiz_01_msg_02">iOSの開発言語は？</string>
-    <string name="quiz_01_msg_03">デザインツールは？</string>
-    <string name="retry">リトライ</string>
-    <string name="format_finished_msg">%d問正解しました。</string>
-    <string name="completed_msg">全問正解です！</string>
-    <string name="completed_list">クリア済み一覧へ</string>
-    <string name="success">正解です！</string>
-    <string name="next_step">次のクイズにチャレンジしよう！</string>
-    <string name="completed_screen">クイズ完了一覧</string>
+    <string name="format_finished_msg">You answered %d questions correctly.</string>
+    <string name="completed_msg">All questions are correct!</string>
+    <string name="completed_list">Check completed tasks</string>
+    <string name="empty_data">No data to display</string>
+    <string name="dropdown_menu_locale_label">Please select a language</string>
+    <string name="go_to_main_screen">Go to Quiz</string>
+    <string name="go_to_completed_tasks_screen">check completed Tasks</string>
+
+    <!--  その他アプリで使う文字列で多言語化しないもの  -->
+    <string name="test_tag_compact_main_screen" translatable="false">test_tag_compact_main_screen</string>
+    <string name="test_tag_medium_main_screen" translatable="false">test_tag_compact_medium_screen</string>
+    <string name="test_tag_expanded_main_screen" translatable="false">test_tag_expanded_main_screen</string>
+    <string name="retry" translatable="false">Retry</string>
+    <string name="locale_system_display_name" translatable="false">system locale</string>
+    <string name="locale_ja_display_name" translatable="false">日本語</string>
+    <string name="locale_zh_display_name" translatable="false">中文</string>
+    <string name="locale_ko_display_name" translatable="false">한국어</string>
+
+    <!-- TODO CompletedQuizEntity(テーブル)のprimary keyとして使うので多言語かしないのと他と被らないこと！ -->
+    <string name="quiz_01" translatable="false">Q 01</string>
+    <string name="quiz_02" translatable="false">Q 02</string>
+    <string name="quiz_03" translatable="false">Q 03</string>
+    <string name="quiz_04" translatable="false">Q 04</string>
+    <string name="quiz_05" translatable="false">Q 05</string>
+    <string name="quiz_06" translatable="false">Q 06</string>
+    <string name="quiz_07" translatable="false">Q 07</string>
+    <string name="quiz_08" translatable="false">Q 08</string>
+    <string name="quiz_09" translatable="false">Q 09</string>
+    <string name="quiz_10" translatable="false">Q 10</string>
+    <string name="quiz_11" translatable="false">Q 11</string>
+    <string name="quiz_12" translatable="false">Q 12</string>
+    <string name="quiz_13" translatable="false">Q 13</string>
+    <string name="quiz_14" translatable="false">Q 14</string>
+    <string name="quiz_15" translatable="false">Q 15</string>
+    <string name="quiz_16" translatable="false">Q 16</string>
+    <string name="quiz_17" translatable="false">Q 17</string>
+    <string name="quiz_18" translatable="false">Q 18</string>
+    <string name="quiz_19" translatable="false">Q 19</string>
+    <string name="quiz_20" translatable="false">Q 20</string>
+    <string name="quiz_21" translatable="false">Q 21</string>
 </resources>

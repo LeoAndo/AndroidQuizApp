@@ -1,0 +1,9 @@
+<resources>
+    <string name="format_finished_msg">您正确回答了 %d 个问题。</string>
+    <string name="completed_msg">所有问题都正确！</string>
+    <string name="completed_list">回顾已完成的任务</string>
+    <string name="empty_data">没有数据显示</string>
+    <string name="dropdown_menu_locale_label">请选择语言</string>
+    <string name="go_to_main_screen">前往测验</string>
+    <string name="go_to_completed_tasks_screen">回顾已完成的任务</string>
+</resources>

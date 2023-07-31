@@ -19,8 +19,6 @@ android {
         minSdk 29
         targetSdk 34
         consumerProguardFiles "consumer-rules.pro"
-        // 各productFlavorsで共通のTokenを利用する想定
-        buildConfigField("String", "GITHUB_ACCESS_TOKEN", "\"" + localProperties['GITHUB_ACCESS_TOKEN'] + "\"")
     }
 
     compileOptions {
@@ -30,43 +28,14 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
-    flavorDimensions "version"
-    productFlavors {
-        development {
-            dimension "version"
-            buildConfigField "String", "API_DOMAIN", "\"https://api.github.com\""
-        }
-        stub {
-            dimension "version"
-            buildConfigField "String", "API_DOMAIN", "\"https://api.github.com\""
-        }
-        staging {
-            dimension "version"
-            buildConfigField "String", "API_DOMAIN", "\"https://api.github.com\""
-        }
-        production {
-            dimension "version"
-            buildConfigField "String", "API_DOMAIN", "\"https://api.github.com\""
-        }
-    }
 }
 
 dependencies {
     implementation project(':domain')
-    // Network
-    def ktor_version = '2.3.2'
-    implementation "io.ktor:ktor-client-android:$ktor_version"
-    implementation "io.ktor:ktor-client-logging:$ktor_version"
 
     // DI
     implementation "com.google.dagger:hilt-android:$dagger_hilt_version"
     kapt "com.google.dagger:hilt-compiler:$dagger_hilt_version"
-
-    // Paging
-    implementation("androidx.paging:paging-common-ktx:$paging_common_version")
-
-    // json
-    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1'
 
     // room
     def room = '2.5.2'

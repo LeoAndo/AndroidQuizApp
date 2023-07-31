@@ -32,22 +32,16 @@ jobs:
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
         restore-keys: |
           ${{ runner.os }}-gradle-
-        
-    - name: Create local.properties
-      env:
-        GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        echo "GITHUB_ACCESS_TOKEN=$GITHUB_ACCESS_TOKEN" >> local.properties
     
-    - name: Run lint for developmentDebug the variants.
-      run: ./gradlew lintDevelopmentDebug
+    - name: Run lint for lintDebug the variants.
+      run: ./gradlew lintDebug
 
-    - name: Run unit tests for developmentDebug the variants.
-      run: ./gradlew testDevelopmentDebugUnitTest
+    - name: Run unit tests for testDebugUnitTest the variants.
+      run: ./gradlew testDebugUnitTest
 
-    - name: Build tasks (Assemble main outputs for developmentDebug the variants.)
+    - name: Build tasks (Assemble main outputs for assembleDebug the variants.)
       run: |
-        ./gradlew assembleDevelopmentDebug
+        ./gradlew assembleDebug
     
     # https://github.com/android/nowinandroid/blob/main/.github/workflows/Build.yaml
     - name: Upload build outputs (APKs)
