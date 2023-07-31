@@ -41,6 +41,8 @@ internal fun CompactMainScreen(
         viewModel.changeUiState(throwable.message ?: "error.")
     }
 
+    val title = stringResource(id = viewModel.uiState.selectedQuestion.titleResId)
+
     CompactMainScreenStateless(
         modifier = modifier,
         snackbarHostState = snackbarHostState,
@@ -60,7 +62,7 @@ internal fun CompactMainScreen(
         },
         onClickAnswerButton = { index ->
             scope.launch(coroutineExceptionHandler) {
-                viewModel.changeUiState(pagerState.currentPage, index)
+                viewModel.changeUiState(pagerState.currentPage, index, title)
                 val msg =
                     if (viewModel.uiState.selectedQuestion.data[pagerState.currentPage].answerIndex == index) {
                         "Is the correct answer!"

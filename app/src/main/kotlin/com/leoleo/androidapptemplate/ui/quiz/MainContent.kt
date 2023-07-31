@@ -27,10 +27,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.leoleo.androidapptemplate.R
 import com.leoleo.androidapptemplate.ui.component.AppSurface
-import com.leoleo.androidapptemplate.ui.component.ErrorContent
 import com.leoleo.androidapptemplate.ui.preview.PreviewPhoneDevice
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -43,7 +41,6 @@ internal fun MainContent(
     collectAnswerCount: Int,
     onClickResetButton: () -> Unit,
     onClickAnswerButton: (Int) -> Unit,
-    viewModel: MainContentViewModel = hiltViewModel()
 ) {
 
     Column(
@@ -70,19 +67,10 @@ internal fun MainContent(
             }
         }
 
-        viewModel.uiState.errorMessage?.let {
-            ErrorContent(
-                modifier = Modifier
-                    .wrapContentSize()
-                    .padding(12.dp), errorMessage = it
-            )
-        }
-
         AnimatedVisibility(isFinishedQuiz) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 if (collectAnswerCount == selectedQuestion.data.size) {
                     Text(stringResource(id = R.string.completed_msg), style = MaterialTheme.typography.titleLarge)
-                    viewModel.addCompleteData(stringResource(id = selectedQuestion.titleResId))
                 }
                 Text(stringResource(id = R.string.format_finished_msg, formatArgs = arrayOf(collectAnswerCount)))
                 Button(onClick = { onClickResetButton() }) { Text(stringResource(id = R.string.retry)) }
