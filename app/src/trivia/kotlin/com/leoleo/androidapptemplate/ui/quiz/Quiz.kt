@@ -13,23 +13,17 @@ internal enum class Quiz(
         listOf(
             QuestionData(
                 messageResId = R.string.quiz_01_question_01,
-                answers = listOf(
-                    "George Washington",
-                    "John Adams",
-                    "John Quincy Adams",
-                    "Andrew Johnson",
-                    "Donald John Trump"
-                ),
+                answerResId = R.array.quiz_01_question_01_answers,
                 answerIndex = 0
             ),
             QuestionData(
                 messageResId = R.string.quiz_01_question_02,
-                answers = listOf("Chicago", "Louisiana", "Michigan", "Georgia", "Washington D.C."),
+                answerResId = R.array.quiz_01_question_02_answers,
                 answerIndex = 4
             ),
             QuestionData(
                 messageResId = R.string.quiz_01_question_03,
-                answers = listOf("Japanese fencing", "McDonald\'s", "Sumo", "MLB"),
+                answerResId = R.array.quiz_01_question_03_answers,
                 answerIndex = 3
             ),
         )
@@ -39,17 +33,17 @@ internal enum class Quiz(
         listOf(
             QuestionData(
                 messageResId = R.string.quiz_02_question_01,
-                answers = listOf("190", "200", "201", "192", "198", "188"),
+                answerResId = R.array.quiz_02_question_01_answers,
                 answerIndex = 4
             ),
             QuestionData(
                 messageResId = R.string.quiz_02_question_02,
-                answers = listOf("190", "200", "206", "192", "198", "188", "210"),
+                answerResId = R.array.quiz_02_question_02_answers,
                 answerIndex = 2
             ),
             QuestionData(
                 messageResId = R.string.quiz_02_question_03,
-                answers = listOf("193", "200", "185"),
+                answerResId = R.array.quiz_02_question_03_answers,
                 answerIndex = 0
             ),
         ),
@@ -59,17 +53,17 @@ internal enum class Quiz(
         listOf(
             QuestionData(
                 messageResId = R.string.quiz_03_question_01,
-                answers = listOf("Google", "Apple", "Microsoft", "Amazon", "Meta", "Yahoo", "Sony"),
+                answerResId = R.array.quiz_03_question_common_answers,
                 answerIndex = 0
             ),
             QuestionData(
                 messageResId = R.string.quiz_03_question_02,
-                answers = listOf("Google", "Apple", "Microsoft", "Amazon", "Meta", "Yahoo", "Sony"),
+                answerResId = R.array.quiz_03_question_common_answers,
                 answerIndex = 1
             ),
             QuestionData(
                 messageResId = R.string.quiz_03_question_03,
-                answers = listOf("Google", "Apple", "Microsoft", "Amazon", "Meta", "Yahoo", "Sony"),
+                answerResId = R.array.quiz_03_question_common_answers,
                 answerIndex = 2
             ),
         ),

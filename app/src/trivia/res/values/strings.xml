@@ -1,13 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">TriviaQuizApp</string>
-    <string name="quiz_01_question_01">アメリカの初代大統領は？</string>
-    <string name="quiz_01_question_02">アメリカの首都は？</string>
-    <string name="quiz_01_question_03">アメリカ発祥のスポーツは？</string>
-    <string name="quiz_02_question_01">マイケルジョーダンの身長は(cm)？</string>
-    <string name="quiz_02_question_02">レブロンジェームズの身長は(cm)？</string>
-    <string name="quiz_02_question_03">ロジャー・クレメンスの身長は(cm)？</string>
-    <string name="quiz_03_question_01">Androidを開発している会社は？</string>
-    <string name="quiz_03_question_02">iOSを開発している会社は？</string>
-    <string name="quiz_03_question_03">windowsを開発している会社は？</string>
+    <string name="quiz_01_question_01">Which was America\'s first president?</string>
+    <string name="quiz_01_question_02">Which is the capital of America?</string>
+    <string name="quiz_01_question_03">Which sports originated in America?</string>
+    <string name="quiz_02_question_01">How tall is Michael Jordan (cm)?</string>
+    <string name="quiz_02_question_02">How tall is LeBron James (cm)?</string>
+    <string name="quiz_02_question_03">How tall is Roger Clemens (cm)?</string>
+    <string name="quiz_03_question_01">Which company develops Android?</string>
+    <string name="quiz_03_question_02">Which company develops iOS?</string>
+    <string name="quiz_03_question_03">Which company develops windows?</string>
+
+    <string-array name="quiz_01_question_01_answers">
+        <item>George Washington</item>
+        <item>John Adams</item>
+        <item>John Quincy Adams</item>
+        <item>Andrew Johnson</item>
+        <item>Donald John Trump</item>
+    </string-array>
+    <string-array name="quiz_01_question_02_answers">
+        <item>Chicago</item>
+        <item>Louisiana</item>
+        <item>Michigan</item>
+        <item>Georgia</item>
+        <item>Washington D.C.</item>
+    </string-array>
+    <string-array name="quiz_01_question_03_answers">
+        <item>Japanese fencing</item>
+        <item>McDonald\'s</item>
+        <item>Sumo</item>
+        <item>MLB</item>
+    </string-array>
+    <string-array name="quiz_02_question_01_answers">
+        <item>190</item>
+        <item>200</item>
+        <item>201</item>
+        <item>192</item>
+        <item>198</item>
+        <item>188</item>
+    </string-array>
+    <string-array name="quiz_02_question_02_answers">
+        <item>190</item>
+        <item>200</item>
+        <item>206</item>
+        <item>192</item>
+        <item>198</item>
+        <item>188</item>
+        <item>210</item>
+    </string-array>
+    <string-array name="quiz_02_question_03_answers">
+        <item>193</item>
+        <item>200</item>
+        <item>185</item>
+    </string-array>
+    <string-array name="quiz_03_question_common_answers">
+        <item>Google</item>
+        <item>Apple</item>
+        <item>Microsoft</item>
+        <item>Amazon</item>
+        <item>Meta</item>
+        <item>Yahoo</item>
+        <item>Sony</item>
+    </string-array>
 </resources>

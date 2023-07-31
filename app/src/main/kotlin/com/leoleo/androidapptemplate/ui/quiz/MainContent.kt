@@ -23,6 +23,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
@@ -70,13 +71,21 @@ internal fun MainContent(
         AnimatedVisibility(isFinishedQuiz) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 if (collectAnswerCount == selectedQuestion.data.size) {
-                    Text(stringResource(id = R.string.completed_msg), style = MaterialTheme.typography.titleLarge)
+                    Text(
+                        stringResource(id = R.string.completed_msg),
+                        style = MaterialTheme.typography.titleLarge
+                    )
                 }
-                Text(stringResource(id = R.string.format_finished_msg, formatArgs = arrayOf(collectAnswerCount)))
+                Text(
+                    stringResource(
+                        id = R.string.format_finished_msg,
+                        formatArgs = arrayOf(collectAnswerCount)
+                    )
+                )
                 Button(onClick = { onClickResetButton() }) { Text(stringResource(id = R.string.retry)) }
             }
         }
-        selectedQuestion.data[pagerState.currentPage].answers.forEachIndexed { index, answerText ->
+        stringArrayResource(id = selectedQuestion.data[pagerState.currentPage].answerResId).forEachIndexed { index, answerText ->
             Button(
                 onClick = { onClickAnswerButton(index) },
                 modifier = Modifier.fillMaxWidth(), enabled = !isFinishedQuiz,
