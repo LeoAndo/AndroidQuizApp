@@ -118,7 +118,7 @@ private fun Prev_MainContent_Initial() {
             isFinishedQuiz = false,
             collectAnswerCount = 0,
             onClickResetButton = { },
-            onClickAnswerButton = { index -> }
+            onClickAnswerButton = { _ -> }
         )
     }
 }
@@ -138,7 +138,7 @@ private fun Prev_MainContent_Finished() {
             isFinishedQuiz = true,
             collectAnswerCount = Quiz.Q01.data.size,
             onClickResetButton = { },
-            onClickAnswerButton = { index -> }
+            onClickAnswerButton = { _ -> }
         )
     }
 }

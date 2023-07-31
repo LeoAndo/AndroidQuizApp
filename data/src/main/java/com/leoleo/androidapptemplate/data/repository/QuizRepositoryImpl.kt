@@ -30,8 +30,6 @@ internal class QuizRepositoryImpl @Inject constructor(
             val data = CompletedQuizEntity(title = title, completedTime = completedTime)
             if (dao.selectCompletedQuizByTitle(title).isEmpty()) {
                 dao.insertQuizData(data)
-            } else {
-                dao.updateQuizData(data)
             }
         }
     }
