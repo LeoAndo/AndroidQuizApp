@@ -35,8 +35,8 @@ jobs:
 
     - name: Release Build tasks (apk and aab)
       run: |
-        ./gradlew assembleProductionRelease
-        ./gradlew bundleProductionRelease
+        ./gradlew assembleRelease
+        ./gradlew bundleRelease
     
     # https://github.com/softprops/action-gh-release#%EF%B8%8F-uploading-release-assets
     - name: Release
@@ -44,5 +44,7 @@ jobs:
       if: startsWith(github.ref, 'refs/tags/')
       with:
         files: |
-          app/build/outputs/apk/production/release/app-production-release.apk
-          app/build/outputs/bundle/productionRelease/app-production-release.aab
+          app/build/outputs/apk/arithmetic/release/app-arithmetic-release.apk
+          app/build/outputs/bundle/arithmeticRelease/app-arithmetic-release.aab
+          app/build/outputs/apk/trivia/release/app-trivia-release.apk
+          app/build/outputs/bundle/triviaRelease/app-trivia-release.aab

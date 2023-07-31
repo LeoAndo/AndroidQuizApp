@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">ArithQuizApp</string>
+    <string name="quiz_01_question_01" translatable="false">１ ＋ １ ＝ ？</string>
+    <string name="quiz_01_question_02" translatable="false">８ ＋ ８ ＝ ？</string>
+    <string name="quiz_01_question_03" translatable="false">２８ ＋ １２３ ＝ ？</string>
+    <string name="quiz_02_question_01" translatable="false">１ ー １ ＝ ？</string>
+    <string name="quiz_02_question_02" translatable="false">８ ー ８ ＝ ？</string>
+    <string name="quiz_02_question_03" translatable="false">２８ ー １２３ ＝ ？</string>
+    <string name="quiz_03_question_01" translatable="false">１ X １ ＝ ？</string>
+    <string name="quiz_03_question_02" translatable="false">８ X ８ ＝ ？</string>
+    <string name="quiz_03_question_03" translatable="false">２８ X １２３ ＝ ？</string>
+</resources>

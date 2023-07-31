@@ -8,7 +8,6 @@ import com.leoleo.androidapptemplate.domain.exception.callOrThrow
 import com.leoleo.androidapptemplate.domain.model.CompletedQuiz
 import com.leoleo.androidapptemplate.domain.repository.QuizRepository
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
@@ -19,7 +18,7 @@ internal class QuizRepositoryImpl @Inject constructor(
     @IoDispatcher private val dispatcher: CoroutineDispatcher,
 ) : QuizRepository {
     override fun observeAllCompletedQuiz(): Flow<List<CompletedQuiz>> {
-        return dao.observeAllCompletedQuiz().map { it.toModels() }.flowOn(Dispatchers.IO)
+        return dao.observeAllCompletedQuiz().map { it.toModels() }.flowOn(dispatcher)
     }
 
     override suspend fun getCompletedQuizList(): List<CompletedQuiz> {
@@ -28,12 +27,11 @@ internal class QuizRepositoryImpl @Inject constructor(
 
     override suspend fun addCompleteData(title: String, completedTime: Long) {
         callOrThrow(dispatcher) {
+            val data = CompletedQuizEntity(title = title, completedTime = completedTime)
             if (dao.selectCompletedQuizByTitle(title).isEmpty()) {
-                dao.insertQuizData(
-                    CompletedQuizEntity(
-                        title = title, completedTime = completedTime
-                    )
-                )
+                dao.insertQuizData(data)
+            } else {
+                dao.updateQuizData(data)
             }
         }
     }

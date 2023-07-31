@@ -1,0 +1,9 @@
+<resources>
+    <string name="format_finished_msg">%d問正解しました。</string>
+    <string name="completed_msg">全問正解です！</string>
+    <string name="completed_list">完了タスクの確認</string>
+    <string name="empty_data">表示するデータはありません</string>
+    <string name="dropdown_menu_locale_label">言語を選択してください</string>
+    <string name="go_to_main_screen">クイズへ</string>
+    <string name="go_to_completed_tasks_screen">完了タスクの確認</string>
+</resources>

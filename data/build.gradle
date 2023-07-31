@@ -28,21 +28,6 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
-    flavorDimensions "version"
-    productFlavors {
-        development {
-            dimension "version"
-        }
-        stub {
-            dimension "version"
-        }
-        staging {
-            dimension "version"
-        }
-        production {
-            dimension "version"
-        }
-    }
 }
 
 dependencies {

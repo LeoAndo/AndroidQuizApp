@@ -78,23 +78,15 @@ android {
     }
     flavorDimensions "version"
     productFlavors {
-        development {
+        arithmetic {
             dimension "version"
-            applicationIdSuffix ".development"
-            versionNameSuffix "-development"
+            applicationIdSuffix ".arithmetic"
+            versionNameSuffix "-arithmetic"
         }
-        stub {
+        trivia {
             dimension "version"
-            applicationIdSuffix ".stub"
-            versionNameSuffix "-stub"
-        }
-        staging {
-            dimension "version"
-            applicationIdSuffix ".staging"
-            versionNameSuffix "-staging"
-        }
-        production {
-            dimension "version"
+            applicationIdSuffix ".trivia"
+            versionNameSuffix "-trivia"
         }
     }
 }
