@@ -2,7 +2,6 @@ package com.leoleo.androidapptemplate.ui.quiz
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.ScrollState
-import com.leoleo.androidapptemplate.R
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -13,8 +12,6 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -36,7 +33,6 @@ import kotlinx.coroutines.launch
 internal fun CompactMainScreen(
     modifier: Modifier = Modifier,
     viewModel: QuizViewModel = hiltViewModel(),
-    navigateToNextScreen: () -> Unit,
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val pagerState = rememberPagerState()
@@ -76,7 +72,6 @@ internal fun CompactMainScreen(
                 snackbarHostState.showSnackbar(msg)
             }
         },
-        onClickInfoIconButton = { navigateToNextScreen() }
     )
 }
 
@@ -92,7 +87,6 @@ private fun CompactMainScreenStateless(
     onClickBottomItem: (Int) -> Unit,
     onClickResetButton: () -> Unit,
     onClickAnswerButton: (Int) -> Unit,
-    onClickInfoIconButton: () -> Unit,
 ) {
     AppSurface(modifier) {
         Scaffold(
@@ -105,14 +99,6 @@ private fun CompactMainScreenStateless(
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis
                         )
-                    },
-                    actions = {
-                        IconButton(onClick = { onClickInfoIconButton() }) {
-                            Icon(
-                                imageVector = Icons.Filled.Info,
-                                contentDescription = stringResource(id = R.string.completed_list)
-                            )
-                        }
                     },
                 )
             },
@@ -179,7 +165,6 @@ private fun Prev_CompactMainScreen_Initial() {
             onClickBottomItem = {},
             onClickResetButton = { },
             onClickAnswerButton = {},
-            onClickInfoIconButton = {},
         )
     }
 }
@@ -199,7 +184,6 @@ private fun Prev_CompactMainScreen_Finished() {
         onClickBottomItem = {},
         onClickResetButton = { },
         onClickAnswerButton = {},
-        onClickInfoIconButton = {},
     )
 }
 
@@ -215,7 +199,6 @@ private fun Prev_CompactMainScreen_Error() {
             onClickBottomItem = {},
             onClickResetButton = { },
             onClickAnswerButton = {},
-            onClickInfoIconButton = {},
         )
     }
 }

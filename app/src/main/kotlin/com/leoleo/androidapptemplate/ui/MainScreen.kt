@@ -15,29 +15,28 @@ import com.leoleo.androidapptemplate.ui.preview.PreviewPhoneDevice
 internal fun MainScreen(
     modifier: Modifier = Modifier,
     windowWidthSizeClass: WindowWidthSizeClass,
-    navigateToNextScreen: () -> Unit,
 ) {
     when (windowWidthSizeClass) {
-        WindowWidthSizeClass.Compact -> CompactMainScreen(modifier.testTag(stringResource(id = R.string.test_tag_compact_main_screen))) { navigateToNextScreen() }
-        WindowWidthSizeClass.Medium -> MediumMainScreen(modifier.testTag(stringResource(id = R.string.test_tag_medium_main_screen))) { navigateToNextScreen() }
-        WindowWidthSizeClass.Expanded -> ExpandedMainScreen(modifier.testTag(stringResource(id = R.string.test_tag_expanded_main_screen))) { navigateToNextScreen() }
+        WindowWidthSizeClass.Compact -> CompactMainScreen(modifier.testTag(stringResource(id = R.string.test_tag_compact_main_screen)))
+        WindowWidthSizeClass.Medium -> MediumMainScreen(modifier.testTag(stringResource(id = R.string.test_tag_medium_main_screen)))
+        WindowWidthSizeClass.Expanded -> ExpandedMainScreen(modifier.testTag(stringResource(id = R.string.test_tag_expanded_main_screen)))
     }
 }
 
 @PreviewPhoneDevice
 @Composable
 private fun Prev_MainScreen_Compact() {
-    MainScreen(windowWidthSizeClass = WindowWidthSizeClass.Compact) {}
+    MainScreen(windowWidthSizeClass = WindowWidthSizeClass.Compact)
 }
 
 @PreviewPhoneDevice
 @Composable
 private fun Prev_MainScreen_Medium() {
-    MainScreen(windowWidthSizeClass = WindowWidthSizeClass.Medium) {}
+    MainScreen(windowWidthSizeClass = WindowWidthSizeClass.Medium)
 }
 
 @PreviewPhoneDevice
 @Composable
 private fun Prev_MainScreen_Expanded() {
-    MainScreen(windowWidthSizeClass = WindowWidthSizeClass.Expanded) {}
+    MainScreen(windowWidthSizeClass = WindowWidthSizeClass.Expanded)
 }

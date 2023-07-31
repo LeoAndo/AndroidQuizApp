@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -16,7 +15,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.leoleo.androidapptemplate.R
 import com.leoleo.androidapptemplate.ui.component.AppSurface
 import com.leoleo.androidapptemplate.ui.component.ErrorContent
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -27,7 +25,6 @@ import kotlinx.coroutines.launch
 internal fun ExpandedMainScreen(
     modifier: Modifier = Modifier,
     viewModel: QuizViewModel = hiltViewModel(),
-    navigateToNextScreen: () -> Unit,
 ) {
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val pagerState = rememberPagerState()
@@ -43,23 +40,6 @@ internal fun ExpandedMainScreen(
         DismissibleNavigationDrawer(drawerState = drawerState, drawerContent = {
             DismissibleDrawerSheet {
                 Spacer(Modifier.height(12.dp))
-
-                NavigationDrawerItem(
-                    icon = {
-                        Icon(
-                            Icons.Default.Info,
-                            contentDescription = stringResource(id = R.string.completed_list)
-                        )
-                    },
-                    label = { Text(stringResource(id = R.string.completed_list)) },
-                    selected = false,
-                    onClick = {
-                        scope.launch(coroutineExceptionHandler) { drawerState.close() }
-                        navigateToNextScreen()
-                    },
-                    modifier = Modifier.padding(horizontal = 12.dp)
-                )
-
                 Quiz.values().forEachIndexed { index, quiz ->
                     NavigationDrawerItem(
                         label = { Text(stringResource(id = quiz.titleResId)) },

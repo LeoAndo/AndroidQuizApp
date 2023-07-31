@@ -8,7 +8,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationRail
 import androidx.compose.material3.NavigationRailItem
@@ -20,7 +19,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.leoleo.androidapptemplate.R
 import com.leoleo.androidapptemplate.ui.component.AppSurface
 import com.leoleo.androidapptemplate.ui.component.ErrorContent
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -31,7 +29,6 @@ import kotlinx.coroutines.launch
 internal fun MediumMainScreen(
     modifier: Modifier = Modifier,
     viewModel: QuizViewModel = hiltViewModel(),
-    navigateToNextScreen: () -> Unit,
 ) {
     val pagerState = rememberPagerState()
     val pagerScrollState = rememberScrollState()
@@ -44,21 +41,6 @@ internal fun MediumMainScreen(
     AppSurface(modifier) {
         Row {
             NavigationRail {
-                NavigationRailItem(
-                    icon = {
-                        Icon(
-                            Icons.Default.Info,
-                            contentDescription = stringResource(id = R.string.completed_list)
-                        )
-                    },
-                    label = { Text(stringResource(id = R.string.completed_list)) },
-                    selected = false,
-                    onClick = {
-                        navigateToNextScreen()
-                    },
-                    modifier = Modifier.padding(horizontal = 12.dp)
-                )
-
                 Quiz.values().forEachIndexed { index, item ->
                     NavigationRailItem(
                         icon = {

@@ -37,9 +37,7 @@ internal fun MyNavHost(
         composable(
             route = TopDestinations.MainRoute.routeName,
             content = {
-                MainScreen(windowWidthSizeClass = windowWidthSizeClass, navigateToNextScreen = {
-                    navController.navigate(TopDestinations.CompletedTasksRoute.routeName)
-                })
+                MainScreen(windowWidthSizeClass = windowWidthSizeClass)
             }
         )
         composable(
