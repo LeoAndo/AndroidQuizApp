@@ -4,8 +4,8 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import kotlin.jvm.Throws
 
-@Throws(AppErrorType::class)
-suspend fun <T> callOrThrow(
+@Throws(ApiException::class)
+suspend fun <T> callApiOrThrow(
     dispatcher: CoroutineDispatcher,
     apiCall: suspend () -> T
 ): T {
@@ -14,7 +14,7 @@ suspend fun <T> callOrThrow(
             apiCall.invoke()
         } catch (e: Throwable) {
             // TODO: アプリ固有のExceptionをthrowする
-            throw AppErrorType.Unknown(e.message)
+            throw ApiException.Unknown(e.message)
         }
     }
 }
