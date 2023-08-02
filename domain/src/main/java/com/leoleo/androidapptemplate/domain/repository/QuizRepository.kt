@@ -5,6 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface QuizRepository {
     fun observeAllCompletedQuiz(): Flow<List<CompletedQuiz>>
-    suspend fun getCompletedQuizList(): List<CompletedQuiz>
     suspend fun addCompleteData(title: String, completedTime: Long)
 }
